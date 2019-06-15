@@ -1,0 +1,4 @@
+Python Models:
+-Models are a CLASS which represents a table in database.
+-Eash type of data have (e.g. Users, Jobs) is represented by it's own model.
+-Each model maps to a single table in database.
