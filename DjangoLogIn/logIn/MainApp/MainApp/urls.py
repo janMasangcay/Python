@@ -14,12 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include # to be able to map MainApp urls.py to other Apps urls.py (ex. line 24)
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.homePage),
-    path('about/', views.about),
-    path('articles/', include('articlesApp.urls')),
+    path('putok/', admin.site.urls), # http://localhost:8000/admin/
+    path('', views.homePage), # http://localhost:8000
+    path('about/', views.about), # http://localhost:8000/about
+    path('articles/', include('articlesApp.urls')), # This tells django that if I type localhost://8000/articles/ - it'll look for articlesApp.urls
 ]

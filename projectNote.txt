@@ -2,3 +2,20 @@ Python Models:
 -Models are a CLASS which represents a table in database.
 -Eash type of data have (e.g. Users, Jobs) is represented by it's own model.
 -Each model maps to a single table in database.
+
+After Creating Model:
+-after creating the model, we should update the database.
+--manage.py makemigrations
+--manage.py migrate
+
+Interacting with data into the Database(ENV is ON):
+-manage.py shell
+>>> from appName.models import classInsideTheModel # classInsideTheModel also the name of the table inside the DB
+>>> classInsideTheModel # this is to confirm we targetted the model
+>>> classInsideTheModel.objects.all() # query available object inside the database
+>>> objName = classInsideTheModel() # create new instance of that class 
+>>> objName.title = "Putok, this is the title" # .title is a property of that classa and assigning a value to that property
+>>> objName.title # returns the value inside that property
+>>> objName.save() # saves this object instance to the DB
+>>> classInsideTheModel.objects.all() # query available object inside the database
+>>> classInsideTheModel.objects.all()[0] # query specific object into the DB

@@ -8,3 +8,21 @@ class Article(models.Model): # This is inheriting what the model from Django has
     date = models.DateTimeField(auto_now_add=True) # Automatically set the field to now when the object is first created.
     # add in thumbnail later
     # add in author later
+
+    def __str__(self):    # Shows a more meaningful result when querying data from the DB instead of just "object, object"
+        return self.title
+
+
+"""
+Interacting with data into the Database(ENV is ON):
+-manage.py shell
+>>> from appName.models import classInsideTheModel # classInsideTheModel also the name of the table inside the DB
+>>> classInsideTheModel # this is to confirm we targetted the model
+>>> classInsideTheModel.objects.all() # query available object inside the database
+>>> objName = classInsideTheModel() # create new instance of that class 
+>>> objName.title = "Putok, this is the title" # .title is a property of that classa and assigning a value to that property
+>>> objName.title # returns the value inside that property
+>>> objName.save() # saves this object instance to the DB
+>>> classInsideTheModel.objects.all() # query available object inside the database
+>>> classInsideTheModel.objects.all()[0] # query specific object into the DB
+"""
