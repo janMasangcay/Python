@@ -9,12 +9,14 @@ class Article(models.Model): # This is inheriting what the model from Django has
     # add in thumbnail later
     # add in author later
 
-    def __str__(self):    # Shows a more meaningful result when querying data from the DB instead of just "object, object"
+    def __str__(self):    # Shows a more meaningful result when querying data from the DB instead of just "objName object (2), objName object (1)"
         return self.title
 
 
+# After creating model, let Django knows that you want to show this update to the admin-area view. -Inside articles.admin.py 
+
 """
-Interacting with data into the Database(ENV is ON):
+Interacting with data into the Database(ENV is ON) using python shell:
 -manage.py shell
 >>> from appName.models import classInsideTheModel # classInsideTheModel also the name of the table inside the DB
 >>> classInsideTheModel # this is to confirm we targetted the model
