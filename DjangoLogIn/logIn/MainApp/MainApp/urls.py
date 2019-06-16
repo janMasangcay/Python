@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include # to be able to map MainApp urls.py to other Apps urls.py (ex. line 24)
 from . import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns 
 
 urlpatterns = [
     path('putok/', admin.site.urls), # http://localhost:8000/admin/
@@ -23,3 +24,7 @@ urlpatterns = [
     path('about/', views.about), # http://localhost:8000/about
     path('articles/', include('articlesApp.urls')), # This tells django that if I type localhost://8000/articles/ - it'll look for articlesApp.urls
 ]
+
+urlpatterns += staticfiles_urlpatterns()
+
+# from django.contrib.staticfiles.urls import staticfiles_urlpatterns - tells Django to serve our static files for us.
