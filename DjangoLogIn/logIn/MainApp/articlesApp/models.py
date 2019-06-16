@@ -12,6 +12,10 @@ class Article(models.Model): # This is inheriting what the model from Django has
     def __str__(self):    # Shows a more meaningful result when querying data from the DB instead of just "objName object (2), objName object (1)"
         return self.title
 
+    def snippet(self):    # Added this function to manipulate the display and shorten for the articleList page.
+        return self.body[:50] + '...'
+
+
 
 # After creating model, let Django knows that you want to show this update to the admin-area view. -Inside articles.admin.py 
 
