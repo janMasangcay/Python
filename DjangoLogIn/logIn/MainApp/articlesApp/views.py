@@ -16,4 +16,5 @@ def articleList(request):
 
 def articleDetail(request, slugPutok):
     print(slugPutok)
-    return articleList(request)
+    # return articleList(request)
+    return HttpResponse(slugPutok)

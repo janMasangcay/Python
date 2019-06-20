@@ -11,8 +11,11 @@
     <title>Articles</title>
 </head>
 <body>
-    {% block putok %}
-    
-    {% endblock %}
+    <div class="wrapper">
+        <h1><a href="{% url 'listAnglit' %}"><img src="{% static 'articlesApp/img/logo.png' %}" alt="django-logo"></a></h1>
+        {% block putok %}
+
+        {% endblock %}
+    </div>
 </body>
 </html>
