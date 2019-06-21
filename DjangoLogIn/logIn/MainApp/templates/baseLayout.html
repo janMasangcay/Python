@@ -1,0 +1,21 @@
+{% load static from staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="{% static 'styles.css' %}"> -->
+    {% block css %}
+
+    {% endblock %}
+    <title>Articles</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h1><a href="{% url 'listAnglit' %}"><img src="{% static 'articlesApp/img/logo.png' %}" alt="django-logo"></a></h1>
+        {% block putok %}
+
+        {% endblock %}
+    </div>
+</body>
+</html>

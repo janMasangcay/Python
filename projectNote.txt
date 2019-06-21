@@ -1,0 +1,37 @@
+Urls procedures:
+-create APP
+-create templates folder inside that app
+-inside templates, add another folder(usually same name as the app name)
+-this template folder will hold all the .html for this particular app
+-inside this new app create
+-let Django knows about the new app. Using the setting.py inside the MainApp
+-update MainApp urls by registering the new app - path('newApp/', include('newApp.urls')),
+-newApp/ above tells django that, when I add that into my url i.e. http://localhost:8000/newApp/, it'll look inside that 
+
+
+Python Models:
+-Models are a CLASS which represents a table in database.
+-Eash type of data have (e.g. Users, Jobs) is represented by it's own model.
+-Each model maps to a single table in database.
+
+After Creating Model:
+-after creating the model, we should update the database.
+--manage.py makemigrations
+--manage.py migrate
+
+Interacting with data into the Database(ENV is ON):
+-manage.py shell
+>>> from appName.models import classInsideTheModel # classInsideTheModel also the name of the table inside the DB
+>>> classInsideTheModel # this is to confirm we targetted the model
+>>> classInsideTheModel.objects.all() # query available object inside the database
+>>> objName = classInsideTheModel() # create new instance of that class 
+>>> objName.title = "Putok, this is the title" # .title is a property of that classa and assigning a value to that property
+>>> objName.title # returns the value inside that property
+>>> objName.save() # saves this object instance to the DB
+>>> classInsideTheModel.objects.all() # query available object inside the database
+>>> classInsideTheModel.objects.all()[0] # query specific object into the DB
+
+After creating a model:
+-After creating model, let Django knows that you want to show this update to the admin-area view.
+-Inside articles.admin.py 
+-add - from .models import Article (. in .models is the saying the current dir)
